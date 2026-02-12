@@ -6,3 +6,4 @@ export { default as Episode } from "./Episode";
 export { default as Character } from "./Character";
 export { default as CharacterList } from "./CharacterList";
 export { default as Location } from "./Location";
+export { default as Login } from "./Login";
