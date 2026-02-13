@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { useAuth } from "../context/AuthProvider";
 import { Link, Outlet } from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundary";
 
 export function MainNav() {
   const { user } = useAuth();
@@ -33,9 +34,11 @@ export function MainNav() {
           </li>
         </ul>
       </header>
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <Outlet />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Outlet />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 }
